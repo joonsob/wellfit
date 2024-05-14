@@ -19,4 +19,4 @@ Wellfit is a web application designed to help users track their fitness goals, m
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/your-fitness-app.git
+git clone https://github.com/joonsob/wellfit.git
