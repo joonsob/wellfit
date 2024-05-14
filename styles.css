@@ -1,0 +1,37 @@
+.header {
+    text-align: center;
+}
+
+/* CSS for centering the tab container */
+.tab-container {
+    text-align: center;
+}
+
+/* CSS for the tabs */
+.tab {
+    display: inline-block;
+}
+
+.tab button {
+    background-color: inherit;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    border-radius: 8px;
+    margin: 0 5px; /* Add some margin between buttons */
+}
+
+.tab button.active {
+    background-color: #ccc;
+}
+/* Hide all tab content sections by default */
+.tabcontent {
+    display: none;
+}
+
+/* Show the tab content of the active tab */
+.tabcontent.active {
+    display: block;
+}

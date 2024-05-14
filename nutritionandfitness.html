@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Fitness App</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+
+    <header class = "header">
+        <h1>Your Fitness App</h1>
+    </header>
+
+    <!-- Centered container for tab navigation -->
+    <div class="tab-container">
+        <!-- CSS Tab navigation for Home, Fitness Page, and Nutrition Page -->
+        <div class="tab">
+            <button class="tablinks active" onclick="openTab(event, 'homePage')">Home</button>
+            <button class="tablinks" onclick="openTab(event, 'fitnessPage')">Fitness Page</button>
+            <button class="tablinks" onclick="openTab(event, 'nutritionPage')">Nutrition Page</button>
+        </div>
+    </div>
+
+    <main>
+        <!-- Home Page content -->
+        <section id="homePage" class="tabcontent" style="display: block;">
+            <h2>Welcome to Your Fitness App!</h2>
+            <p>Discover your path to a healthier lifestyle with our comprehensive fitness and nutrition guides.</p>
+            <p>Stay motivated and track your progress with our easy-to-use tools and personalized plans.</p>
+            <p>Start your journey today!</p>
+        </section>
+
+        <!-- Fitness Page content -->
+        <section id="fitnessPage" class="tabcontent">
+            <h2>Fitness Page</h2>
+            <p>This is the content of the Fitness Page.</p>
+
+            <h3>Workout Plans</h3>
+            <p>Choose a workout plan that suits your fitness goals.</p>
+            <!-- Add workout plan details here -->
+        </section>
+        
+
+        <!-- Nutrition Page content -->
+        <section id="nutritionPage" class="tabcontent">
+            <h2>Nutrition Page</h2>
+            <p>This is the content of the Nutrition Page.</p>
+            <h3>Nutrition Guide</h3>
+
+            <h4>Breakfast</h4>
+            <ul>
+                <li>Healthy customizable breakfast item 1</li>
+                <li>Healthy customizable breakfast item 2</li>
+                <li>Healthy customizable breakfast item 3</li>
+                <!-- Add more items as needed -->
+            </ul>
+
+            <h4>Lunch</h4>
+            <ul>
+                <li>Healthy customizable lunch item 1</li>
+                <li>Healthy customizable lunch item 2</li>
+                <li>Healthy customizable lunch item 3</li>
+                <!-- Add more items as needed -->
+            </ul>
+
+            <h4>Dinner</h4>
+            <ul>
+                <li>Healthy customizable dinner item 1</li>
+                <li>Healthy customizable dinner item 2</li>
+                <li>Healthy customizable dinner item 3</li>
+                <!-- Add more items as needed -->
+            </ul>
+
+            <h4>Snack</h4>
+            <ul>
+                <li>Healthy customizable snack item 1</li>
+                <li>Healthy customizable snack item 2</li>
+                <li>Healthy customizable snack item 3</li>
+                <!-- Add more items as needed -->
+            </ul>
+        </section>
+        
+    </main>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
