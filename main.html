@@ -3,32 +3,48 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login | Health & Fitness Tracker</title>
-  <link rel="stylesheet" href="auth.css">
+  <title>Health & Fitness Tracker</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="container">
-    <div class="form-container">
-      <!-- Login Form -->
-      <form id="login-form" class="auth-form">
-        <h2>Log In</h2>
-        <input type="email" id="login-email" placeholder="Email" required>
-        <input type="password" id="login-password" placeholder="Password" required>
-        <button type="submit">Log In</button>
-        <p>Don't have an account? <a href="#" onclick="showSignUp()">Sign Up</a></p>
-      </form>
+  <header>
+    <h1>Health & Fitness Tracker</h1>
+  </header>
 
-      <!-- Sign Up Form (Hidden by default) -->
-      <form id="signup-form" class="auth-form hidden">
-        <h2>Sign Up</h2>
-        <input type="text" id="signup-username" placeholder="Username" required>
-        <input type="email" id="signup-email" placeholder="Email" required>
-        <input type="password" id="signup-password" placeholder="Password" required>
+  <main>
+    <!-- Login Form -->
+    <div id="login-container">
+      <h2>Login</h2>
+      <form id="login-form">
+        <input type="text" id="username" placeholder="Username" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button type="submit">Login</button>
+      </form>
+      <p>Don't have an account? <button id="signup-button">Sign Up</button></p>
+    </div>
+
+    <!-- Signup Form -->
+    <div id="signup-container" style="display: none;">
+      <h2>Sign Up</h2>
+      <form id="signup-form">
+        <input type="text" id="new-username" placeholder="Username" required>
+        <input type="password" id="new-password" placeholder="Password" required>
         <button type="submit">Sign Up</button>
-        <p>Already have an account? <a href="#" onclick="showLogIn()">Log In</a></p>
       </form>
     </div>
-  </div>
+
+    <!-- Meal and Workout Plans -->
+    <div id="meal-plans" style="display: none;">
+      <h2>Meal Plans</h2>
+      <div id="meal-plan-content"></div>
+    </div>
+
+    <div id="workouts" style="display: none;">
+      <h2>Workout Plans</h2>
+      <div id="workout-plan-content"></div>
+    </div>
+  </main>
 
   <script src="script.js"></script>
 </body>
