@@ -46,5 +46,5 @@ Before you begin, ensure you have the following installed:
 
 1. **Clone this repository**:
    ```bash
-   git clone https://github.com/your-username/WellFit-app.git
-   cd WellFit-app
+   git clone https://github.com/your-username/wellfit-app.git
+   cd wellfit-app
