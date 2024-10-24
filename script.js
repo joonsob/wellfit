@@ -1,113 +1,139 @@
-// User data simulation
-let users = JSON.parse(localStorage.getItem('users')) || [];
-
-function saveUsers() {
-    localStorage.setItem('users', JSON.stringify(users));
-}
-
-// Login functionality
 document.addEventListener('DOMContentLoaded', () => {
-    const loginBtn = document.getElementById('login-btn');
-    const signupBtn = document.getElementById('signup-btn');
+    // Show sign-up form
+    document.getElementById('show-signup').addEventListener('click', () => {
+        document.getElementById('login-container').style.display = 'none';
+        document.getElementById('signup-container').style.display = 'block';
+    });
 
-    if (loginBtn) {
-        loginBtn.addEventListener('click', () => {
-            const username = document.getElementById('login-username').value;
-            const password = document.getElementById('login-password').value;
-            const user = users.find(user => user.username === username && user.password === password);
+    // Show login form
+    document.getElementById('show-login').addEventListener('click', () => {
+        document.getElementById('signup-container').style.display = 'none';
+        document.getElementById('login-container').style.display = 'block';
+    });
 
-            if (user) {
-                console.log('Login successful, redirecting to main page.');
-                window.location.href = 'main.html';
-            } else {
-                console.log('Login failed: incorrect username or password.');
-                document.getElementById('login-error').textContent = 'Incorrect username or password.';
-            }
-        });
-    }
+    // Handle login
+    document.getElementById('login-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const username = document.getElementById('login-username').value;
+        const password = document.getElementById('login-password').value;
+        loginUser(username, password);
+    });
 
-    if (signupBtn) {
-        signupBtn.addEventListener('click', () => {
-            const username = document.getElementById('signup-username').value;
-            const password = document.getElementById('signup-password').value;
-
-            if (username && password) {
-                if (users.some(user => user.username === username)) {
-                    console.log('Signup failed: username already taken.');
-                    document.getElementById('signup-error').textContent = 'Username already taken.';
-                } else {
-                    users.push({ username, password });
-                    saveUsers();
-                    console.log('Signup successful.');
-                    document.getElementById('signup-success').textContent = 'Signup successful! You can now log in.';
-                }
-            } else {
-                console.log('Signup failed: missing username or password.');
-                document.getElementById('signup-error').textContent = 'Please fill out both fields.';
-            }
-        });
-    }
-
-    // Display plans if we're on the main page
-    if (document.getElementById('meals') && document.getElementById('workouts')) {
-        console.log('Loading meal and workout plans...');
-        displayPlans();
-    }
+    // Handle sign-up
+    document.getElementById('signup-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const username = document.getElementById('signup-username').value;
+        const password = document.getElementById('signup-password').value;
+        signupUser(username, password);
+    });
 });
 
-// Meal and workout data simulation
-const mealPlans = {
-    Monday: ["Oatmeal with fruits", "Chicken salad", "Grilled salmon with veggies"],
-    Tuesday: ["Smoothie bowl", "Quinoa salad", "Turkey wrap"],
-    Wednesday: ["Avocado toast", "Veggie wrap", "Chicken stir-fry"],
-    Thursday: ["Yogurt and granola", "Pasta with pesto", "Baked chicken with sweet potato"],
-    Friday: ["Fruit salad", "Caesar salad", "Beef tacos"],
-    Saturday: ["Egg omelet", "Sushi", "Roasted vegetables with tofu"],
-    Sunday: ["Pancakes", "Couscous salad", "Homemade pizza"]
-};
+async function loginUser(username, password) {
+    try {
+        const response = await fetch('http://localhost:5000/api/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ username, password }),
+        });
 
-const workoutPlans = {
-    Monday: ["30 min jogging", "20 push-ups", "15 squats"],
-    Tuesday: ["Yoga session", "Plank for 1 min", "10 burpees"],
-    Wednesday: ["HIIT workout", "30 sec mountain climbers", "20 lunges"],
-    Thursday: ["Pilates", "15 tricep dips", "25 crunches"],
-    Friday: ["Cycling", "Jumping jacks for 2 min", "15 leg raises"],
-    Saturday: ["Strength training", "Deadlifts", "15 bicep curls"],
-    Sunday: ["Rest day", "Gentle stretching", "Meditation"]
-};
-
-// Function to display the meal and workout plans for the current day
-function displayPlans() {
-    const dayOfWeek = new Date().toLocaleString('en-US', { weekday: 'long' });
-    console.log(`Today is: ${dayOfWeek}`);
-
-    // Get today's meal and workout plans
-    const todaysMeals = mealPlans[dayOfWeek];
-    const todaysWorkouts = workoutPlans[dayOfWeek];
-
-    if (todaysMeals && todaysWorkouts) {
-        console.log('Displaying meal and workout plans...');
-        
-        // Display meal plans
-        const mealsContainer = document.getElementById('meals');
-        mealsContainer.innerHTML = `
-            <h3>Meals for ${dayOfWeek}</h3>
-            <ul>
-                <li>Breakfast: ${todaysMeals[0]}</li>
-                <li>Lunch: ${todaysMeals[1]}</li>
-                <li>Dinner: ${todaysMeals[2]}</li>
-            </ul>
-        `;
-
-        // Display workout plans
-        const workoutsContainer = document.getElementById('workouts');
-        workoutsContainer.innerHTML = `
-            <h3>Workouts for ${dayOfWeek}</h3>
-            <ul>
-                ${todaysWorkouts.map(workout => `<li>${workout}</li>`).join('')}
-            </ul>
-        `;
-    } else {
-        console.error('Meal or workout plans not found for today.');
+        const data = await response.json();
+        if (response.ok) {
+            localStorage.setItem('token', data.token);
+            loadMainContent();
+        } else {
+            alert(data.message);
+        }
+    } catch (error) {
+        console.error('Error logging in:', error);
+        alert('Error logging in');
     }
+}
+
+async function signupUser(username, password) {
+    try {
+        const response = await fetch('http://localhost:5000/api/signup', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ username, password }),
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+            alert('Sign-up successful! You can now log in.');
+        } else {
+            alert(data.message);
+        }
+    } catch (error) {
+        console.error('Error signing up:', error);
+        alert('Error signing up');
+    }
+}
+
+function loadMainContent() {
+    document.getElementById('auth-container').style.display = 'none';
+    document.getElementById('main-container').style.display = 'block';
+    loadMealAndWorkout();
+}
+
+function getCurrentDay() {
+    const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    const today = new Date();
+    return days[today.getDay()];
+}
+
+async function loadMealAndWorkout() {
+    const day = getCurrentDay();
+    const token = localStorage.getItem('token');
+
+    if (!token) {
+        alert('You must be logged in to view this content.');
+        return;
+    }
+
+    try {
+        const mealResponse = await fetch(`http://localhost:5000/api/meals/${day}`, {
+            headers: {
+                'Authorization': `Bearer ${token}`,
+            },
+        });
+        const mealData = await mealResponse.json();
+
+        const workoutResponse = await fetch(`http://localhost:5000/api/workouts/${day}`, {
+            headers: {
+                'Authorization': `Bearer ${token}`,
+            },
+        });
+        const workoutData = await workoutResponse.json();
+
+        displayMeals(mealData.meals);
+        displayWorkouts(workoutData.workouts);
+
+    } catch (error) {
+        console.error('Error loading data:', error);
+        alert('Error loading meal and workout plans');
+    }
+}
+
+function displayMeals(meals) {
+    const mealContainer = document.getElementById('meal-plan-content');
+    mealContainer.innerHTML = `
+        <h3>Today's Meals</h3>
+        <ul>
+            ${meals.map(meal => `<li>${meal}</li>`).join('')}
+        </ul>
+    `;
+}
+
+function displayWorkouts(workouts) {
+    const workoutContainer = document.getElementById('workout-plan-content');
+    workoutContainer.innerHTML = `
+        <h3>Today's Workouts</h3>
+        <ul>
+            ${workouts.map(workout => `<li>${workout}</li>`).join('')}
+        </ul>
+    `;
 }
