@@ -1,0 +1,63 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f9fbfd;
+    margin: 0;
+    padding: 20px;
+    color: #2c3e50;
+}
+
+header {
+    background-color: #3a86ff;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+}
+
+h1, h2 {
+    margin: 0;
+}
+
+h2 {
+    color: #3a86ff;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+/* Meal and Workout Plan Content */
+#meal-plan-content, #workout-plan-content {
+    font-size: 1.1rem;
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    transition: transform 0.3s ease-in-out;
+}
+
+#meal-plan-content:hover, #workout-plan-content:hover {
+    transform: translateY(-5px);
+}
+
+#meal-plan-content h3, #workout-plan-content h3 {
+    color: #3a86ff;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+/* Footer Styles */
+footer {
+    margin-top: 40px;
+    text-align: center;
+    color: #b0b0b0;
+    font-size: 0.9rem;
+}

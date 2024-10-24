@@ -1,63 +1,134 @@
+/* General Styles */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+  font-family: 'Poppins', sans-serif;  /* Modern, clean font */
+  background-color: #f9fbfd; /* Light grayish blue background */
+  margin: 0;
+  padding: 20px;
+  color: #2c3e50; /* Darker gray for text */
+}
+
+header {
+  background-color: #3a86ff; /* Modern, vibrant blue */
+  color: white;
+  padding: 20px;
+  text-align: center;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* Softer shadow */
+  margin-bottom: 40px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2.5rem; /* Larger for better emphasis */
+  font-weight: 600;
+}
+
+h2 {
+  color: #3a86ff;
+  margin-bottom: 30px;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+/* Authentication Containers */
+#login-container, #signup-container {
+  background-color: #ffffff;
+  padding: 25px;
+  margin: 20px 0;
+  border-radius: 15px; /* Rounded corners */
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05); /* Soft, subtle shadow */
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  transition: transform 0.3s ease-in-out;
+}
+
+#login-container:hover, #signup-container:hover {
+  transform: translateY(-5px); /* Lift-up effect on hover */
+}
+
+/* Form Inputs */
+input {
+  width: 100%;
+  padding: 15px;
+  margin: 12px 0;
+  border: none;
+  border-bottom: 2px solid #d3d3d3;
+  background-color: #f9fbfd;
+  border-radius: 8px;
+  box-sizing: border-box;
+  transition: border-color 0.3s;
+  font-size: 1rem;
+}
+
+input:focus {
+  border-bottom: 2px solid #3a86ff; /* Highlighted border on focus */
+  outline: none;
+}
+
+/* Button Styles */
+button {
+  background-color: #3a86ff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  cursor: pointer;
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease;
+  margin-top: 15px;
+}
+
+button:hover {
+  background-color: #265ed7; /* Slightly darker shade on hover */
+}
+
+/* Form Heading Styles */
+form h2 {
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  color: #3a86ff;
+  text-align: center;
+}
+
+/* Error and Success Messages */
+.error-message, .success-message {
+  background-color: #ffe4e1;
+  color: #d9534f;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.success-message {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+/* Footer Styles */
+footer {
+  margin-top: 40px;
+  text-align: center;
+  color: #b0b0b0;
+  font-size: 0.9rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+  body {
+      padding: 10px;
   }
-  
-  .container {
-    width: 300px;
-    background: white;
-    padding: 20px;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-  }
-  
+
   h2 {
-    text-align: center;
-    color: #333;
+      font-size: 1.5rem;
   }
-  
-  .auth-form {
-    display: flex;
-    flex-direction: column;
+
+  button {
+      font-size: 0.9rem;
   }
-  
-  .auth-form input {
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  .auth-form button {
-    padding: 10px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .auth-form button:hover {
-    background-color: #218838;
-  }
-  
-  .auth-form p {
-    text-align: center;
-    margin-top: 10px;
-  }
-  
-  .auth-form a {
-    color: #007bff;
-    cursor: pointer;
-  }
-  
-  .hidden {
-    display: none;
-  }
-  
+}
