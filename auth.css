@@ -1,134 +1,69 @@
-/* General Styles */
-body {
-  font-family: 'Poppins', sans-serif;  /* Modern, clean font */
-  background-color: #f9fbfd; /* Light grayish blue background */
-  margin: 0;
-  padding: 20px;
-  color: #2c3e50; /* Darker gray for text */
-}
-
-header {
-  background-color: #3a86ff; /* Modern, vibrant blue */
-  color: white;
-  padding: 20px;
-  text-align: center;
-  border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* Softer shadow */
-  margin-bottom: 40px;
-}
-
-h1 {
-  margin: 0;
-  font-size: 2.5rem; /* Larger for better emphasis */
-  font-weight: 600;
-}
-
-h2 {
-  color: #3a86ff;
-  margin-bottom: 30px;
-  text-align: center;
-  font-size: 2rem;
-  font-weight: 500;
-}
-
-/* Authentication Containers */
-#login-container, #signup-container {
-  background-color: #ffffff;
+/* Login Container Styling */
+#login-container {
+  background-color: #fff;
   padding: 25px;
-  margin: 20px 0;
-  border-radius: 15px; /* Rounded corners */
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05); /* Soft, subtle shadow */
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   max-width: 400px;
-  margin-left: auto;
-  margin-right: auto;
-  transition: transform 0.3s ease-in-out;
-}
-
-#login-container:hover, #signup-container:hover {
-  transform: translateY(-5px); /* Lift-up effect on hover */
+  margin: 50px auto;
+  text-align: center;
 }
 
 /* Form Inputs */
-input {
+input[type="text"], input[type="password"] {
   width: 100%;
-  padding: 15px;
-  margin: 12px 0;
-  border: none;
-  border-bottom: 2px solid #d3d3d3;
-  background-color: #f9fbfd;
-  border-radius: 8px;
+  padding: 10px;
+  margin: 15px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
   box-sizing: border-box;
-  transition: border-color 0.3s;
-  font-size: 1rem;
 }
 
-input:focus {
-  border-bottom: 2px solid #3a86ff; /* Highlighted border on focus */
-  outline: none;
-}
-
-/* Button Styles */
+/* Buttons */
 button {
+  width: 100%;
+  padding: 10px;
   background-color: #3a86ff;
   color: white;
   border: none;
-  border-radius: 8px;
-  padding: 12px;
-  cursor: pointer;
+  border-radius: 5px;
   font-size: 1rem;
-  width: 100%;
-  box-sizing: border-box;
+  cursor: pointer;
+  margin-top: 10px;
   transition: background-color 0.3s ease;
-  margin-top: 15px;
 }
 
 button:hover {
-  background-color: #265ed7; /* Slightly darker shade on hover */
+  background-color: #265ed7;
 }
 
-/* Form Heading Styles */
-form h2 {
-  margin-bottom: 20px;
-  font-size: 1.8rem;
-  color: #3a86ff;
-  text-align: center;
+.cancelbtn {
+  background-color: #f44336;
 }
 
-/* Error and Success Messages */
-.error-message, .success-message {
-  background-color: #ffe4e1;
-  color: #d9534f;
-  padding: 10px;
-  border-radius: 8px;
-  margin-bottom: 15px;
-  text-align: center;
-  font-size: 0.9rem;
+.cancelbtn:hover {
+  background-color: #d32f2f;
 }
 
-.success-message {
-  background-color: #d4edda;
-  color: #155724;
+/* Sign Up Button */
+#signup-prompt button {
+  width: auto;
+  padding: 10px 20px;
+  background-color: #00c853;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  margin-top: 20px;
 }
 
-/* Footer Styles */
+#signup-prompt button:hover {
+  background-color: #009624;
+}
+
+/* Footer */
 footer {
-  margin-top: 40px;
   text-align: center;
-  color: #b0b0b0;
+  margin-top: 30px;
   font-size: 0.9rem;
-}
-
-/* Responsive Styles */
-@media (max-width: 600px) {
-  body {
-      padding: 10px;
-  }
-
-  h2 {
-      font-size: 1.5rem;
-  }
-
-  button {
-      font-size: 0.9rem;
-  }
+  color: #555;
 }

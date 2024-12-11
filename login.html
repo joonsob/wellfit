@@ -13,30 +13,34 @@
 
     <!-- Login Container -->
     <div id="login-container">
-        <form id="login-form">
+        <form action="http://localhost:5000/login" method="post" id="login-form">
             <h2>Login</h2>
             
             <!-- Username Field -->
-            <label for="username"><b>Username</b></label><br>
-            <input type="text" id="username" placeholder="Enter your username" required><br>
+            <label for="username"><b>Username</b></label>
+            <input type="text" id="username" name="uname" placeholder="Enter your username" required>
             
             <!-- Password Field -->
-            <label for="password"><b>Password</b></label><br>
-            <input type="password" id="password" placeholder="Enter your password" required><br>
-
+            <label for="password"><b>Password</b></label>
+            <input type="password" id="password" name="psw" placeholder="Enter your password" required>
+            
             <!-- Remember Me Checkbox -->
-            <label>
-                <input type="checkbox" checked> Remember me
-            </label><br>
+            <div class="remember-me">
+                <label>
+                    <input type="checkbox" name="remember" checked> Remember me
+                </label>
+            </div>
 
             <!-- Login Button -->
-            <button type="submit">Login</button><br>
+            <button type="submit" id="login-btn">Login</button>
             
             <!-- Cancel Button -->
-            <button type="button" class="cancelbtn" onclick="location.href='index.html'">Cancel</button>
+            <button type="button" class="cancelbtn" onclick="location.href='index.html'">Cancel</button> 
 
             <!-- Forgot Password Link -->
-            <span class="psw">Forgot <a href="#">password?</a></span>
+            <div class="forgot-password">
+                <span>Forgot <a href="#">password?</a></span>
+            </div>
         </form>
 
         <!-- Sign Up Prompt -->
